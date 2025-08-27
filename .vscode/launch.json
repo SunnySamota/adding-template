@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringStarterApplication<SpringStarter>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.sunny.SpringStarter.SpringStarterApplication",
+            "projectName": "SpringStarter",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
