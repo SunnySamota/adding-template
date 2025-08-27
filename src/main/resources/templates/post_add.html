@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head"></head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="/images/hero-bg.jpg" alt="">
+    </div>
+    <header th:replace="/fragments/header :: header"></header>
+  </div>
+
+  <!-- Post Add Section -->
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+
+          <div class="card shadow-lg p-4 rounded">
+            <h2 class="text-center mb-4">Add New Post</h2>
+
+            <form th:action="@{/posts/add}" th:object="${post}" method="post">
+
+              <!-- Title -->
+              <div class="mb-3">
+                <label for="title" class="form-label">Post Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter post title"
+                       th:field="*{title}" required>
+              </div>
+
+              <!-- Body -->
+              <div class="mb-3">
+                <label for="body" class="form-label">Post Content</label>
+                <textarea class="form-control" id="body" rows="6"
+                          placeholder="Write your post here..." th:field="*{body}" required></textarea>
+              </div>
+
+              <!-- Submit -->
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">Save Post</button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer th:replace="/fragments/footer :: footer"></footer>
+
+</body>
+</html>

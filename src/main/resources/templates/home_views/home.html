@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/head :: head"></head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/hero-bg.jpg" alt="">
+    </div>
+    <header th:replace="/fragments/header :: header"></header>
+  </div>
+
+  <!-- Posts Section -->
+  <section class="about_section layout_padding">
+    <div class="container">
+
+      <div th:each="post : ${posts}" class="post-card">
+        <!-- Post Title with Link -->
+        <h3>
+          <a th:href="@{/posts/{id}(id=${post.id})}" th:text="${post.title}">Post Title</a>
+        </h3>
+
+        <!-- Author -->
+        <h5>
+          <span>Author: </span>
+          <span th:text="${post.account != null ? post.account.firstname : 'Anonymous'}"></span>
+        </h5>
+
+        <!-- Created At -->
+        <h5>
+          <span>Created At: </span>
+          <span th:text="${#temporals.format(post.createdAt, 'dd-MM-yyyy HH:mm')}"></span>
+        </h5>
+
+        <!-- Body -->
+        <p th:text="${post.body}">Post body preview</p>
+        <hr/>
+      </div>
+
+    </div>
+  </section>
+
+  <footer th:replace="/fragments/footer :: footer"></footer>
+
+</body>
+</html>
